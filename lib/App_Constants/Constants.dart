@@ -8,15 +8,15 @@ const kBackGroundGradient = BoxDecoration(
   begin: Alignment.topCenter,
   end: Alignment(0.8, 1),
   colors: <Color>[
-    Color(0xff321458),
-    Color(0xff050207),
+    Color(0xff4D1902),
+    Color(0xff000000),
   ],
 ));
 //linear-gradient(180deg, #321458 0%, #050207 100%)
 const kSplashGradient = BoxDecoration(
     // image: AssetImage("images/objects_splash.png",),
     image: DecorationImage(
-      image: AssetImage('images/Back Groud.jpg'),
+      image: AssetImage('images/background_img.png'),
       fit: BoxFit.fill,
     ),
     // Gradient from https://learnui.design/tools/gradient-generator.html
@@ -24,8 +24,8 @@ const kSplashGradient = BoxDecoration(
       begin: Alignment.topCenter,
       end: Alignment(0.8, 1),
       colors: <Color>[
-        Color(0xff3A1458),
-        Color(0xff020102),
+        Color(0xff4D1902),
+        Color(0xff000000),
       ],
     ));
 
@@ -36,8 +36,8 @@ const kCardGradient = BoxDecoration(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: <Color>[
-        Color(0xffA954FF),
-        Color(0xffB22AF2),
+        Color(0xff4D1902),
+        Color(0xff000000),
       ],
     ));
 

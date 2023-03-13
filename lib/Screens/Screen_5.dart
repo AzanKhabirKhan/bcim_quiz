@@ -36,62 +36,14 @@ class _Screen_5State extends State<Screen_5> {
               Row(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(child: Image.asset("images/trophey_img.png")),
+                  Expanded(child: Image.asset("images/congrats_img.png")),
                 ],
               ),
-              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Congratulations",
-                    style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "You have won",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    width: 60,
-                    height: 30,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text("x${widget.Score}"),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffB736F3),
-                          // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4))),
-                    ),
-                  ),
-                  Text(
-                    "points",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
-                  )
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod tempor incididunt\n ut labore et dolore magna aliqua. ",
+                    "Congratulation you have complete the quiz and\n if you enjoy the quiz please try again, if you want\n to see your ranking please go to the\n leaderboard. ",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 14,
@@ -101,25 +53,27 @@ class _Screen_5State extends State<Screen_5> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 140,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  elevatedButton('Done', () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Home_Screen(),
-                        ));
-                  })
-                ],
+              Padding(
+                padding:  EdgeInsets.only(top: 70),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    elevatedButton('Done', () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home_Screen(),
+                          ));
+                    })
+                  ],
+                ),
               ),
               SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset("images/backward_img.png"),
+                  SizedBox(width: 12,),
                   GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -130,7 +84,8 @@ class _Screen_5State extends State<Screen_5> {
                               ),
                             ));
                       },
-                      child: Text(
+                      child:
+                      Text(
                         "Play again",
                         style: TextStyle(
                             fontSize: 14,

@@ -27,14 +27,18 @@ class _SplashState extends State<Splash> {
           height: double.infinity,
           decoration: kSplashGradient,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(),
-              Image.asset(
-                'images/logo.png',
-                width: 162,
-                height: 162,
+              Padding(
+                padding:  EdgeInsets.only(left: 60.0),
+                child: Image.asset(
+                  'images/logo_img.png',
+                  width: 200,
+                  height: 200,
+                ),
               ),
+              SizedBox(height: 50,),
               BlocProvider(
                 create: (context) => ServerCubit(
                   apiRepository: ServerPageeService(
@@ -72,9 +76,10 @@ class _SplashState extends State<Splash> {
                         height: 45,
                         width: 45,
                         child: CircularProgressIndicator(
-                          strokeWidth: 6,
+                          strokeWidth: 5,
                           valueColor: new AlwaysStoppedAnimation<Color>(
-                            Color(0xffA036F3),
+                            Color(0xffE84A06
+                            ),
                           ),
                         ),
                       ),

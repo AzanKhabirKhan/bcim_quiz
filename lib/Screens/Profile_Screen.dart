@@ -1,4 +1,7 @@
+import '../App_Controller/model/questions_model.dart';
+import 'Profile_Screen_5.dart';
 import 'package:flutter/material.dart';
+import 'package:winonequiz2/Screens/Screen_5.dart';
 import '../App_Constants/Constants.dart';
 
 class Profile_Screen extends StatefulWidget {
@@ -17,7 +20,7 @@ class _Profile_ScreenState extends State<Profile_Screen> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 40, left: 30),
+              padding: EdgeInsets.only(top: 40, left: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -40,32 +43,39 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                 ],
               ),
             ),
-            SizedBox(height: 60),
+            // SizedBox(height: 60),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () {},
-                  child: CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage('images/prof_1.png'),
+                  onTap: () {
+                  },
+                  child: Padding(
+                    padding:  EdgeInsets.only(top: 50.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('images/prof_1.png',),
+                        ),
+
+                        SizedBox(height: 40,),
+                        Text(
+                          "Nick Name",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                        )
+                      ],
+                    ),
                   ),
                 ),
+                Image.asset("images/light_img.png")
               ],
             ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Nick Name",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
-                )
-              ],
-            )
+
+
           ],
         ),
       ),
