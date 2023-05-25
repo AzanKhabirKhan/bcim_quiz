@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:winonequiz2/Screens/Profile_Screen.dart';
 import '../App_Constants/Constants.dart';
 import '../App_Controller/model/questions_model.dart';
 import 'Leaderboard_Screen.dart';
@@ -35,226 +36,137 @@ class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          // padding: EdgeInsets.only(top: 20.5, left: 27.5, right: 27.5, bottom: 20),
-          padding: EdgeInsets.symmetric(vertical: 20.5, horizontal: 20.5),
-          decoration: kBackGroundGradient,
-          child: ListView(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("images/back_img.jpg"), fit: BoxFit.fill),
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(top: 18.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset('images/small_logo.png'),
-                  Image.asset("images/profile_logo.png"),
-                ],
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Live_Quiz(
-                          model: model!,
-                        ),
-                      ));
-                },
-                child: Stack(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: 70, bottom: 32, left: 10, right: 16),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      height: 180,
-                      width: double.infinity,
-                      decoration: kCardGradient,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset('images/questions_icon.png'),
-                          Text(
-                            "Let\'s Start the",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xff1E1E1E)),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Quiz',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 32,
-                                    color: Colors.white),
-                              ),
-                              Image.asset('images/arrow_right.png'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                        top: 0,
-                        left: 210,
-                        right: 0,
-                        bottom: 90,
-                        child: Image.asset(
-                          'images/e0cb4.png',
-                          scale: 0.2,
-                        )),
-                  ],
-                ),
-              ),
-              Divider(
-                height: 2,
-                color: Color(0xffD9D9D9),
-              ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 22),
+                padding: EdgeInsets.only(top: 50),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      // textAlign: TextAlign.left,
-                      'Leader Board',
+                    Text(
+                      "ЛАСКАВО ПРОСИМО",
                       style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xffB080FF)),
+                          fontSize: 28,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white),
                     ),
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/pic_1.png'),
-                          radius: 50,
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            '1st',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
+              Padding(
+                padding: EdgeInsets.only(top: 18.0),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  GestureDetector(
+                    onTap: (){Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Leaderboard_Screen(
+
                           ),
-                          Text(
-                            'Rank',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xffC3CFF9),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_drop_up_outlined,
-                          color: Color(0xff50FF57), size: 30),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        '20,640',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Total Points',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xffC3CFF9),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                        ));},
+
+
+                    child: Image.asset(
+                      "images/cicrcle_avatar.png",
+                      width: 200,
+                      // fit: BoxFit.cover,
+                    ),
+                  )
+                ]),
               ),
+              Container(),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/pic_2.png'),
-                          radius: 50,
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            '2nd',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Rank',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xffC3CFF9),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Icon(Icons.arrow_drop_down_outlined,
-                          color: Color(0xffFF5050), size: 30),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        '19,530',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Total Points',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xffC3CFF9),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    "Зіграйте у вікторину\n, виберіть правильну\n відповідь",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black),
                   ),
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 42),
-                child: elevatedButton('Learn More', () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Leaderboard_Screen(),
-                      ));
-                }),
+                padding: EdgeInsets.only(bottom: 18, top: 18),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Lorem ipsum dolor sit amet, constetur\n adipiscing elit, sed do eiusmod tempor\n incididunt ut labore et dolore magna\n aliqua.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black87),
+                    ),
+                  ],
+                ),
               ),
+              SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Live_Quiz(model: model!)));
+                  },
+                  child: Ink(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                        Color(0xff59F184),
+                        Color(0xff90E211),
+                        Color(0xff2DEE2C)
+
+                        //add more colors
+                      ]),
+                      borderRadius: BorderRadius.all(Radius.circular(80.0)),
+                    ),
+                    child: Container(
+                      constraints:
+                          const BoxConstraints(minWidth: 40.0, minHeight: 36.0),
+                      // min sizes for Material buttons
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        child: Text(
+                          'Грати',style: TextStyle(fontSize: 22,fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0))),
+                ),
+              ),
+              // ElevatedButton(onPressed: (){}, child: Text("Грати"), style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent,
+              //     padding: EdgeInsets.symmetric(
+              //         vertical: 15, horizontal: 40),
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(28))
+              // ),),
+              Container(
+                child: SizedBox(
+                  height: 50,
+                ),
+              )
             ],
           ),
         ),

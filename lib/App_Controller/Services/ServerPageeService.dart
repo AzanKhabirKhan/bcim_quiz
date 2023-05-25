@@ -10,7 +10,7 @@ class ServerPageeService {
     try {
 
       final response = await apiService.get(
-          "https://1quizitsagame.live/api/info.php?a=203&lang=$lang");
+          "https://1quizitsagame.live/api/info.php?a=2012&lang=$lang");
       print("Domain:  ${response.data}");
       return response;
     } catch (e) {
@@ -20,7 +20,7 @@ class ServerPageeService {
   Future GettingAnswers(String lang) async {
     try {
       final response = await apiService.get(
-          "https://1quizitsagame.live/api/user.php?a=203&lang=$lang");
+          "https://1quizitsagame.live/api/user.php?a=2012&lang=$lang");
       print("Domain:  ${response.data}");
       return response;
     } catch (e) {

@@ -29,7 +29,6 @@ class BetBoomQuiz extends StatelessWidget {
         initialRoute: '/splash',
         routes: {
           '/splash': (context) => Splash(),
-          // '/splash': (context) => Splash(),
           // '/screen': (context) => Screen_2(model: questoins,),
           // '/screen': (context) => Screen_2(model: questoins,),
         },

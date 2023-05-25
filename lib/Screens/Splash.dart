@@ -23,21 +23,16 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: kSplashGradient,
+        height: 800,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+        image: DecorationImage(
+        image: AssetImage("images/splacah_img.jpg"),
+    fit: BoxFit.cover)
+        ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(),
-              Padding(
-                padding:  EdgeInsets.only(left: 60.0),
-                child: Image.asset(
-                  'images/logo_img.png',
-                  width: 200,
-                  height: 200,
-                ),
-              ),
               SizedBox(height: 50,),
               BlocProvider(
                 create: (context) => ServerCubit(
@@ -75,13 +70,13 @@ class _SplashState extends State<Splash> {
                       child: SizedBox(
                         height: 45,
                         width: 45,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 5,
-                          valueColor: new AlwaysStoppedAnimation<Color>(
-                            Color(0xffE84A06
-                            ),
-                          ),
-                        ),
+                        // child: CircularProgressIndicator(
+                        //   strokeWidth: 5,
+                        //   valueColor: new AlwaysStoppedAnimation<Color>(
+                        //     Color(0xffE84A06
+                        //     ),
+                        //   ),
+                        // ),
                       ),
                     );
                   },

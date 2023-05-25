@@ -43,18 +43,40 @@ const kCardGradient = BoxDecoration(
 
 Widget elevatedButton(String btitle, Function() onPressed) {
   return Container(
-    width: 200,
-    height: 60,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.shade300,
+          blurRadius: 5.0, // has the effect of softening the shadow
+          spreadRadius: 2.0, // has the effect of extending the shadow
+          offset: Offset(
+            2.0, // horizontal, move right 10
+            5.0, // vertical, move down 10
+          ),
+        )
+      ],
+      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+     border: Border.all(color: Color(0xff4EE44D))
+    ),
+    margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+
     child: ElevatedButton(
       onPressed: onPressed,
-      child: Text(
-        "$btitle",
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "$btitle",style: TextStyle(color: Color(0xff4EE44D),fontSize: 20, fontWeight: FontWeight.w400),
+          ),
+        ],
       ),
       style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff3A75F2),
-          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+        elevation: 0,
+          backgroundColor: Colors.transparent,
+          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
     ),
   );
 }
@@ -111,15 +133,45 @@ Widget numberdBoxes(String btitle, bool isActive) {
 
 Widget optionButton(String btitle, bool isActive, Function() onpressed) {
   return Container(
-    // margin: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-    width: 150,
-    height: 45,
+    decoration: BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.shade300,
+          blurRadius: 5.0, // has the effect of softening the shadow
+          spreadRadius: 2.0, // has the effect of extending the shadow
+          offset: Offset(
+            2.0, // horizontal, move right 10
+            5.0, // vertical, move down 10
+          ),
+        )
+      ],
+      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      gradient: isActive ?LinearGradient(colors: [
+        Color(0xff59F184),
+        Color(0xff59F184),
+        Color(0xff59F184),
+        //add more colors
+      ]):LinearGradient(colors: [
+        Color(0xff59F184),
+        Color(0xff90E211),
+        Color(0xff90E211),
+        //add more colors
+      ]),
+    ),
+    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
     child: ElevatedButton(
       onPressed: onpressed,
-      child: Text("$btitle"),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("$btitle"),
+        ],
+      ),
       style: ElevatedButton.styleFrom(
-          backgroundColor: isActive ? Color(0xff2AC65F) : Color(0xff594370),
+          elevation: 0,
+          // backgroundColor: isActive ? Color(0xff2AC65F) : Color(0xff594370),
           // padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          backgroundColor: Colors.transparent,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
     ),

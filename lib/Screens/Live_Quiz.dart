@@ -28,125 +28,125 @@ class _Live_QuizState extends State<Live_Quiz> {
     return Scaffold(
       body: SafeArea(
         child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/back_img.jpg"), fit: BoxFit.fill),
+          ),
           padding: EdgeInsets.symmetric(vertical: 27, horizontal: 10),
-          decoration: kBackGroundGradient,
+          // decoration: kBackGroundGradient,
           child: ListView(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              customAppBar(context, 'Live Quiz'),
-              Row(
+              // customAppBar(context, 'Live Quiz'),
+SizedBox(height: 30,),
+              Stack(
                 children: [
-                  Expanded(
-                      child: Image.asset(
-                    'images/Frame 31.png',
-                    fit: BoxFit.fitWidth,
-                    // height: 220,
-                    // width: 320,
-                  ))
-                ],
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20.0, horizontal: 24),
-                    child: Text(
-                      'JavaScript Quiz',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        color: Color(0xffD4C3F9),
+                  Container(
+
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade300,
+                            blurRadius: 5.0, // has the effect of softening the shadow
+                            spreadRadius: 2.0, // has the effect of extending the shadow
+                            offset: Offset(
+                              2.0, // horizontal, move right 10
+                              5.0, // vertical, move down 10
+                            ),
+                          )
+                        ],
+                        color: Colors.white.withAlpha(230),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 40, horizontal: 22),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '${widget.model.questions?[index].questions}?',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  color: Colors.black),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                        decoration: BoxDecoration(
+                            color: Color(0xff00AA59),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Text(
+                            "${index + 1}/${widget.model.questions?.length}"),
+                      ),
+                    ],
+                  )
                 ],
               ),
-              Container(
-                height: 50,
-                child: ScrollablePositionedList.builder(
-                  itemScrollController: _scrollController,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: (widget.model.questions?.length)!,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: numberdBoxes(
-                          "${index + 1}", this.index == index ? true : false),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 32, horizontal: 22),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        '${widget.model.questions?[index].questions}?',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Питання ${index + 1}/${widget.model.questions?.length}",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    optionButton(
-                      '${widget.model.questions?[index].incorrectAnswer?[0]}',
-                      option1,
-                      () {
-                        print("option 1");
-                        if (option1) {
-                          print("true");
-                          option1 = false;
-                        } else {
-                          print("false");
-                          option1 = true;
-                          option2 = false;
-                          option3 = false;
-                          option4 = false;
-                        }
-                        setState(() {});
-                      },
-                    ),
-
-                    optionButton(
-                      '${widget.model.questions?[index].incorrectAnswer?[1]}',
-                      option2,
-                      () {
-                        if (option2) {
-                          option2 = false;
-                        } else {
-                          option2 = true;
-                          option1 = false;
-                          option3 = false;
-                          option4 = false;
-                        }
-                        setState(() {});
-                      },
-                    ),
-
-                    // optionButton('Both'),
-                    // optionButton('Alert'),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      optionButton(
+                        '${widget.model.questions?[index].incorrectAnswer?[0]}',
+                        option1,
+                        () {
+                          print("option 1");
+                          if (option1) {
+                            print("true");
+                            option1 = false;
+                          } else {
+                            print("false");
+                            option1 = true;
+                            option2 = false;
+                            option3 = false;
+                            option4 = false;
+                          }
+                          setState(() {});
+                        },
+                      ),
+
+                      optionButton(
+                        '${widget.model.questions?[index].incorrectAnswer?[1]}',
+                        option2,
+                        () {
+                          if (option2) {
+                            option2 = false;
+                          } else {
+                            option2 = true;
+                            option1 = false;
+                            option3 = false;
+                            option4 = false;
+                          }
+                          setState(() {});
+                        },
+                      ),
+
+                      // optionButton('Both'),
+                      // optionButton('Alert'),
+
                       optionButton(
                         '${widget.model.questions?[index].incorrectAnswer?[2]}',
                         option3,
@@ -181,7 +181,7 @@ class _Live_QuizState extends State<Live_Quiz> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 40.0, left: 52, right: 52),
-                child: elevatedButton('Next', () {
+                child: elevatedButton('наступний', () {
                   if (!option1 && !option2 && !option3 && !option4) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text("Please Select an Option"
@@ -223,8 +223,7 @@ class _Live_QuizState extends State<Live_Quiz> {
                       option2 = false;
                       option3 = false;
                       option4 = false;
-                      _scrollController.scrollTo(
-                          index: index, duration: Duration(seconds: 1));
+
                       setState(() {});
                     } else {
                       //result page
